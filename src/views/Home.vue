@@ -30,6 +30,19 @@
 
     <!-- HERO -->
     <section class="hero">
+     
+  <video autoplay muted loop playsinline class="hero-video">
+     <source src="/images/videos/roxana.mp4" type="video/mp4" />
+    Tu navegador no soporta video.
+  </video>
+
+  <div class="hero-overlay">
+    <h1>Dr. Roxana Oana Camelia</h1>
+    <p>Psihoterapie Individuală și Consiliere Profesională</p>
+    <a :href="ctaLink" class="cta">{{ ctaText }}</a>
+  </div>
+
+
       <img src="/images/perfil.png" alt="Roxana" class="profile" />
       <h2>{{ hero.title }}</h2>
       <p>{{ hero.subtitle }}</p>
@@ -385,7 +398,39 @@ const services = computed(() => messages[lang.value].services)
 .nav-links a { text-decoration: none; color: inherit; font-size: 1.5rem; text-shadow: 1px 2px #D4AF37; }
 .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
 .lang-switch { margin-left: 1rem; border-color: #D4AF37; font-size: 0.75rem;}
-.hero { text-align: center; padding: 3rem 1rem 4rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: white; /* puedes poner blanco con sombra o gradient */
+  text-align: center;
+  backdrop-filter: brightness(0.6); /* mejora legibilidad */
+}
+
 
 .cta { background: linear-gradient(135deg, var(--accent), var(--accent-soft)); border: none; color: rgb(77, 74, 74); padding: 0.8rem 1.6rem; border-radius: 999px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
 .cta:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(226, 230, 12, 0.938); }
