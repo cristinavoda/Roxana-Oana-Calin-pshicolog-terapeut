@@ -33,7 +33,7 @@
     <section class="hero">
      
   <video autoplay muted loop playsinline class="hero-video">
-     <source src="/images/videos/roxana.mp4" type="video/mp4" />
+     <source src="/images/videos/roxana2.mp4" type="video/mp4" />
     Tu navegador no soporta video.
   </video>
 
@@ -451,17 +451,24 @@ const services = computed(() => messages[lang.value].services)
   top: 50%;
   left: 50%;
   min-width: 100%;
-  
+   min-height: 100%;
   width: auto;
-  height: 160vh;
+  height: auto;
   transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 0;
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 1;
+}
 
 .hero-overlay {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -470,12 +477,13 @@ const services = computed(() => messages[lang.value].services)
   color: rgb(201, 198, 198); 
   text-shadow: 1px 2pxblack;
   text-align: center;
+   padding: 0 1rem;
   backdrop-filter: brightness(0.6); 
 }
 
 
-.cta { background: linear-gradient(135deg, var(--accent), var(--accent-soft)); border: none;  font-family: 'Playfair Display', serif; color: rgb(32, 31, 31); padding: 0.8rem 1.6rem; border-radius: 999px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
-.cta:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(158, 158, 20, 0.938); }
+.cta { background: linear-gradient(135deg, var(--accent), var(--accent-soft)); border: none;  font-family: 'Playfair Display', serif; color: rgb(32, 31, 31); padding: 0.8rem 1.6rem; border-radius: 999px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 10px rgba(73, 72, 72, 0.1); transition: transform 0.2s, box-shadow 0.2s; }
+.cta:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(153, 153, 22, 0.938); }
 .sticky-cta { position: fixed; bottom: 1rem; right: 50%; transform: translateX(50%); z-index: 1000; }
 .section { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
 .section.alt { background: var(--light); }
@@ -561,7 +569,7 @@ p {
   border-radius: 18px;
   cursor: pointer;
   font-weight: 600;
-  box-shadow: 5px 4px 10px  #e8ca6f;
+  box-shadow: 1px 1px 1px  #c9ae5e;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -633,6 +641,21 @@ p {
   .menu-toggle { display: block; }
   .nav-links { display: none; flex-direction: column; margin-top: 1rem; gap: 0.8rem; width: 100%; }
   .nav-links.open { display: flex; }
+  .hero {
+    height: 70vh;
+  }
+.hero-video {
+    object-fit: cover;
+  object-position: center 35%; 
+  }
+
+  .hero-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-overlay p {
+    font-size: 0.95rem;
+  }
 }
 .contact {
   text-align: center;
