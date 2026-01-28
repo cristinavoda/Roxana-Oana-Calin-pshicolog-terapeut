@@ -40,7 +40,7 @@
   <div class="hero-overlay">
     <h1> Roxana Oana Camelia</h1>
     <p>Psihoterapie Individuală și Consiliere Profesională</p>
-    <a :href="ctaLink" class="cta">{{ ctaText }}</a>
+    
   </div>
 
 
@@ -733,12 +733,27 @@ p {
   padding: 0 1rem;
 }
 .hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(1.2) contrast(1.1);
+  z-index: 0;
+}
+
+.hero-video {
   filter: brightness(1.2) contrast(1.1); 
 }
 
 @media (max-width: 768px) {
   .hero {
-    height: 70vh; 
+    height: 160vh; 
   }}
 
   .hero-overlay h1 {
@@ -747,6 +762,10 @@ p {
   .hero-overlay p {
     font-size: 0.95rem; 
   }
+  .hero-video {
+  object-fit: cover;
+  object-position: center 35%; /* mueve la cabeza al centro */
+}
 }
 
 </style>
