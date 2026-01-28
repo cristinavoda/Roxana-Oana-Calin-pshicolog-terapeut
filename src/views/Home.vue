@@ -74,7 +74,10 @@
     <p class="price">{{ item.price }}</p>
     <p class="duration">{{ item.duration }}</p>
 
-    <button class="cta small">{{ ctaText }}</button>
+          <a :href="ctaLink" target="_blank" class="cta">
+  {{ ctaText }}
+</a>
+
   </div>
 </section>
 
@@ -107,6 +110,12 @@
         rows="4"
         required
       ></textarea>
+
+
+        <a :href="ctaLink" target="_blank" class="cta">
+  {{ ctaText }}
+</a>
+
     </div>
 
     
@@ -115,11 +124,6 @@
 
 
     
-    <!-- STICKY CTA -->
-    <div class="sticky-cta">
-      <button class="cta">{{ ctaText }}</button>
-    </div>
-
    <div class="floating-actions">
   <!-- WhatsApp -->
   <a
@@ -147,6 +151,10 @@
       />
     </svg>
   </a>
+
+
+ 
+
 </div>
 
 <button
@@ -187,7 +195,20 @@ const submitForm = () => {
   console.log(form)
   // aquí luego conectamos email / WhatsApp / backend
 }
+const phoneNumber = '40700000000'  // WhatsApp real
+const emailAddress = 'roxana@example.com'  // Email real
 
+const isMobile = () => /Mobi|Android/i.test(navigator.userAgent)
+
+const ctaLink = computed(() => {
+  if (isMobile()) {
+    // WhatsApp con mensaje pre-rellenado
+    return `https://wa.me/${phoneNumber}?text=Salut,%20vreau%20o%20consultație`
+  } else {
+    // Email
+    return `mailto:${emailAddress}?subject=Consultație&body=Bună,%20aș dori%20o%20consultație`
+  }
+})
 // Estado idioma y menú
 const lang = ref('ro')
 const open = ref(false)
@@ -437,13 +458,30 @@ p {
 .service-card .duration {
   font-size: 0.85rem;
   color: #777;
-  margin-bottom: 1rem;
+  
 }
 
-.cta.small {
-  font-size: 0.75rem;
-  padding: 0.6rem 1.2rem;
+.cta {
+  display: inline-flex;         
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;         
+  border: none;                  
+  font-size: 0.85rem;
+  color: #817e7e;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 5px 4px 10px linear-gradient(90deg, #50c9bf, #FFD700);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
 .fab svg,
 .scroll-up svg {
   width: 18px;
@@ -498,7 +536,11 @@ p {
 .phone {
   background: linear-gradient(135deg, #50c9bf, #FFD700);
 }
-
+.a {
+  color:#7a7878;
+  border-bottom: white;
+  box-shadow: #5c5b20;
+}
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
   .nav-links { display: none; flex-direction: column; margin-top: 1rem; gap: 0.8rem; width: 100%; }
