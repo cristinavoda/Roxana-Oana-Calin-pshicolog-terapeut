@@ -19,6 +19,7 @@
         <a href="#experienta">{{ nav.experience }}</a>
         <a href="#servicii">{{ nav.services }}</a>
         <a href="#contact">{{ nav.contact }}</a>
+       
       </nav>
 
       <select v-model="lang" class="lang-switch">
@@ -394,7 +395,46 @@ const services = computed(() => messages[lang.value].services)
 .name { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem,5vw,1.8rem); font-weight: 600; background: linear-gradient(135deg, var(--accent), var(--accent-soft)); -webkit-background-clip: text; -webkit-text-fill-color: #D4AF37; text-shadow: 1px 1px black;}
 .occupation { font-size: 0.85rem; color: #6b7280; }
 .nav-links { display: flex; gap: 3rem; }
-.nav-links a { text-decoration: none; color: inherit; font-size: 1.5rem; text-shadow: 1px 2px #D4AF37; }
+.nav-links a {
+  text-decoration: none;
+  color: #4e4b4b;
+  font-size: 1.1rem;
+  position: relative;      
+  padding-bottom: 4px;    
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #FFD700; 
+  text-shadow: 1px 2px #1f2933;         
+}
+
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 1px;             
+  background: #FFD700;     
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+.nav-links a.active {
+  color: #50c9bf;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+
 .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
 .lang-switch { margin-left: 1rem; border-color: #D4AF37; font-size: 0.75rem;}
 .hero {
@@ -582,7 +622,7 @@ p {
   background: linear-gradient(135deg, #50c9bf, #FFD700);
 }
 .a {
-  color:#7a7878;
+  color:#a59b9b;
   border-bottom: white;
   text-shadow: #5c5b20;
 }
