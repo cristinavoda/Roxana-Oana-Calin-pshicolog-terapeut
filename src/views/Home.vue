@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <!-- HEADER -->
+    
     <header class="header">
       <div class="header-left">
         <img src="/images/logo3.png" alt="Logo" class="logo" />
@@ -28,7 +28,7 @@
       </select>
     </header>
 
-    <!-- HERO -->
+    
     <section class="hero">
      
   <video autoplay muted loop playsinline class="hero-video">
@@ -37,7 +37,7 @@
   </video>
 
   <div class="hero-overlay">
-    <h1>Dr. Roxana Oana Camelia</h1>
+    <h1> Roxana Oana Camelia</h1>
     <p>Psihoterapie Individuală și Consiliere Profesională</p>
     <a :href="ctaLink" class="cta">{{ ctaText }}</a>
   </div>
@@ -49,7 +49,7 @@
       
     </section>
 
-    <!-- SECTIONS DE CONTENIDO -->
+   
     <section id="despre" class="section">
       <h2>{{ nav.about }}</h2>
       <p v-html="aboutText"></p>
@@ -138,7 +138,7 @@
 
     
    <div class="floating-actions">
-  <!-- WhatsApp -->
+ 
   <a
     href="https://wa.me/40749821694"
     target="_blank"
@@ -152,7 +152,7 @@
     </svg>
   </a>
 
-  <!-- Teléfono -->
+  
   <a
     href="tel:+40749821694"
     aria-label="Telefon"
@@ -206,27 +206,26 @@ const form = reactive({
 
 const submitForm = () => {
   console.log(form)
-  // aquí luego conectamos email / WhatsApp / backend
+  
 }
-const phoneNumber = '40700000000'  // WhatsApp real
-const emailAddress = 'roxana@example.com'  // Email real
+const phoneNumber = '40749821694'  
+const emailAddress = 'roxanacalin.psiholog@gmail.com ' 
 
 const isMobile = () => /Mobi|Android/i.test(navigator.userAgent)
 
 const ctaLink = computed(() => {
   if (isMobile()) {
-    // WhatsApp con mensaje pre-rellenado
+    
     return `https://wa.me/${phoneNumber}?text=Salut,%20vreau%20o%20consultație`
   } else {
-    // Email
+   
     return `mailto:${emailAddress}?subject=Consultație&body=Bună,%20aș dori%20o%20consultație`
   }
 })
-// Estado idioma y menú
+
 const lang = ref('ro')
 const open = ref(false)
 
-// Mensajes multi-idioma
 const messages = {
   ro: {
     occupation: 'Psiholog clinician • București',
@@ -367,7 +366,7 @@ Personal development, change, and overcoming workplace abuse.`,
   }
 }
 
-// Computed reactivos
+
 const ctaText = computed(() => messages[lang.value].cta)
 const occupationText = computed(() => messages[lang.value].occupation)
 const hero = computed(() => messages[lang.value].hero)
@@ -382,7 +381,7 @@ const services = computed(() => messages[lang.value].services)
 
 <style scoped>
 :root {
-  --accent: #50c9bf;
+  --accent: #b7c950;
   --accent-soft: #6ee7e0;
   --dark: #1f2933;
   --light: #f9fafb;
@@ -426,14 +425,15 @@ const services = computed(() => messages[lang.value].services)
   justify-content: center;
   align-items: center;
   height: 100%;
-  color: white; /* puedes poner blanco con sombra o gradient */
+  color: rgb(201, 198, 198); 
+  text-shadow: 1px 2pxblack;
   text-align: center;
-  backdrop-filter: brightness(0.6); /* mejora legibilidad */
+  backdrop-filter: brightness(0.6); 
 }
 
 
 .cta { background: linear-gradient(135deg, var(--accent), var(--accent-soft)); border: none; color: rgb(77, 74, 74); padding: 0.8rem 1.6rem; border-radius: 999px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
-.cta:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(226, 230, 12, 0.938); }
+.cta:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(158, 158, 20, 0.938); }
 .sticky-cta { position: fixed; bottom: 1rem; right: 50%; transform: translateX(50%); z-index: 1000; }
 .section { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
 .section.alt { background: var(--light); }
@@ -457,7 +457,8 @@ html {
 }
 h2 {text-decoration: none; color:#646769; font-size: 1.5rem; font-weight: 400; text-shadow: 1px 2px #D4AF37;}
 p {
-  color: #686969;
+  color: #616363;
+  text-shadow: 1px 2px white;
   font-weight: 300;
 }
 .menu-toggle {
@@ -495,9 +496,8 @@ p {
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 0.3rem;
-  background: linear-gradient(90deg, #5a5906, #FFD700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color:  #f0e5aa;
+  text-shadow: 1px 2px rgb(112, 109, 109);
 }
 
 .service-card .duration {
@@ -514,11 +514,11 @@ p {
   border: none;                  
   font-size: 0.85rem;
   color: #817e7e;
-  padding: 0.8rem 1.6rem;
-  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  border-radius: 18px;
   cursor: pointer;
   font-weight: 600;
-  box-shadow: 5px 4px 10px linear-gradient(90deg, #50c9bf, #FFD700);
+  box-shadow: 5px 4px 10px  #dfd7a9;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -548,7 +548,7 @@ p {
 }
 .floating-actions {
   position: fixed;
-  bottom: 5.5rem; /* deja espacio al sticky CTA */
+  bottom: 5.5rem; 
   right: 1rem;
   display: flex;
   flex-direction: column;
@@ -584,7 +584,7 @@ p {
 .a {
   color:#7a7878;
   border-bottom: white;
-  box-shadow: #5c5b20;
+  text-shadow: #5c5b20;
 }
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
@@ -604,7 +604,7 @@ p {
   margin-bottom: 2rem;
 }
 
-/* Inputs y textarea */
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -618,23 +618,23 @@ p {
   transition: border-color 0.3s;
 }
 
-/* Focus elegante */
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-bottom-color: #50c9bf;
 }
 
-/* Placeholder sutil */
+
 .contact-form ::placeholder {
   color: #999;
 }
 
-/* Textarea */
+
 .contact-form textarea {
   resize: none;
 }
 
-/* Botón centrado */
+
 .contact-form .cta {
   margin-top: 1rem;
 }
@@ -666,6 +666,47 @@ p {
 
 .scroll-up:hover {
   transform: translateY(-2px);
+}
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15); 
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  color: #fff; 
+  padding: 0 1rem;
+}
+.hero-video {
+  filter: brightness(1.2) contrast(1.1); 
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh; 
+  }}
+
+  .hero-overlay h1 {
+    font-size: 1.8rem; 
+
+  .hero-overlay p {
+    font-size: 0.95rem; 
+  }
 }
 
 </style>
