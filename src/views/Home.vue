@@ -15,9 +15,9 @@
       <nav class="nav-links" :class="{ open }">
         <a href="#despre">{{ nav.about }}</a>
         <a href="#psihoterapie">{{ nav.psychotherapy }}</a>
-
         <a href="#arii">{{ nav.areas }}</a>
         <a href="#experienta">{{ nav.experience }}</a>
+        <a href="#servicii">{{ nav.services }}</a>
         <a href="#contact">{{ nav.contact }}</a>
       </nav>
 
@@ -60,12 +60,61 @@
       <p>{{ experienceText }}</p>
     </section>
 
-    <section id="contact" class="section contact">
-      <h2>{{ nav.contact }}</h2>
-      <p>Email: roxanacalin.psiholog@gmail.com </p>
-      <button class="cta">{{ ctaText }}</button>
-    </section>
 
+<section id="servicii" class="section services">
+  <h2>{{ services.title }}</h2>
+
+  <div class="service-card" v-for="(item, index) in services.items" :key="index">
+    <h3>{{ item.name }}</h3>
+
+    <p v-if="item.description" class="description">
+      {{ item.description }}
+    </p>
+
+    <p class="price">{{ item.price }}</p>
+    <p class="duration">{{ item.duration }}</p>
+
+    <button class="cta small">{{ ctaText }}</button>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <h2>{{ nav.contact }}</h2>
+
+  <form class="contact-form" @submit.prevent="submitForm">
+    <div class="field">
+      <input
+        type="text"
+        v-model="form.name"
+        placeholder="Nume"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <input
+        type="email"
+        v-model="form.email"
+        placeholder="Email"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <textarea
+        v-model="form.message"
+        placeholder="Mesajul tău"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+
+    
+  </form>
+</section>
+
+
+    
     <!-- STICKY CTA -->
     <div class="sticky-cta">
       <button class="cta">{{ ctaText }}</button>
@@ -75,6 +124,18 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { reactive } from 'vue'
+
+const form = reactive({
+  name: '',
+  email: '',
+  message: ''
+})
+
+const submitForm = () => {
+  console.log(form)
+  // aquí luego conectamos email / WhatsApp / backend
+}
 
 // Estado idioma y menú
 const lang = ref('ro')
@@ -86,7 +147,7 @@ const messages = {
     occupation: 'Psiholog clinician • București',
     cta: 'Programează o consultație',
     hero: { title: 'Consiliere psihologică online', subtitle: 'Spațiu sigur și confidențial' },
-    nav: { about: 'Despre mine', psychotherapy: 'Psihoterapie', areas: 'Arii de tratament', experience: 'Experiență', contact: 'Contact' },
+    nav: { about: 'Despre mine', psychotherapy: 'Psihoterapie', areas: 'Arii de tratament', experience: 'Experiență', services: 'Servicii',    contact: 'Contact' },
     about: 'Psiholog Clinician, Psihoterapeut Integrativ, Psiho-oncolog, Consilier în adicții.  ',
     psychotherapy: 'Abordare empatică și structurată, adaptată fiecărei persoane.',
     areas: ['Arii de Specializare - Depresie, Anxietate, ADHD, Tulburare Obsesiv - Compulsivă, Dependențe, Susținerea persoanelor cu diagnostic oncologic'],
@@ -105,8 +166,29 @@ psychotherapyText: `
 Despre Psihoterapie
 Ai o poveste de viață care te definește. Când înțelegi părți din viața ta, te întregești. Sunt și părți la care nu poți privi, fie că au fost dureroase, fie că au fost neînțelese și prin urmare, neîncheiate într-un anumit fel, devenind aspecte care îți limitează puterea și putința din momentul prezent. Sunt momente importante în viață și multe sunt dificile - schimbări majore, divorț, a trece într-o noua etapă de viață, decizii importante, pierderi materiale, psihologice, fizice, momente în care apar stari de frică, descurajare sau pur și simplu neregăsire ș.a. Aceste praguri de viață nu ar trebui să fie toate ca o luptă pe cont propriu. Dacă devin dificil de trecut, este firesc să ceri ajutor specializat.
 Te invit ca alături de mine să privești la tine de-a lungul timpului, să înțelegi, să aranjezi prin claritate anumite aspecte din viața ta și să construim moduri benefice și utile prin care tu să acționezi. Ar fi să permiți trecutului, prezentului și viitorului să coexiste armonios. Împreună vom da atenție vieții tale de zi cu zi, astfel încât să facilitezi ceea ce îți dorești. Te voi însoți în parcursul tău de devenire, până acolo unde tu vei ști că ai la îndemână propriile soluții.
-`
-    
+`,
+    services: {
+    title: 'Servicii',
+    items: [
+      {
+        name: 'Psihoterapie individuală',
+        price: '250 RON / ședință',
+        duration: 'Durata: 60 minute'
+      },
+      {
+        name: 'Psihoterapie de grup',
+        price: '200 RON / persoană',
+        duration: 'Durata: 90 minute'
+      },
+      {
+        name: 'Consiliere în carieră',
+        description: `Orientare și reorientare profesională.
+Dezvoltare personală, schimbare, depășirea abuzurilor în muncă.`,
+        price: '250 RON / ședință',
+        duration: 'Durata: 60 minute'
+      }
+    ]
+  }, 
   },
   
 
@@ -131,7 +213,30 @@ He elegido un enfoque Psicoterapéutico Integrativo porque permite un cuadro com
 Sobre Psicoterapia
 Tienes una historia de vida que te define. Al comprender partes de tu vida, te completas. También hay partes que no puedes mirar, ya sea porque fueron dolorosas o incomprendidas y, por lo tanto, no cerradas de alguna manera, convirtiéndose en aspectos que limitan tu fuerza y capacidad en el presente. Hay momentos importantes en la vida y muchos son difíciles: cambios importantes, divorcios, pasar a una nueva etapa de la vida, decisiones importantes, pérdidas materiales, psicológicas o físicas, momentos de miedo, desánimo o simplemente de desubicación. Estos umbrales de la vida no deberían afrontarse solos. Si se vuelven difíciles, es natural pedir ayuda especializada.
 Te invito a que conmigo observes tu vida a lo largo del tiempo, comprendas, ordenes con claridad ciertos aspectos de tu vida y construyamos maneras beneficiosas y útiles para que actúes. Permite que pasado, presente y futuro coexistan armoniosamente. Juntos prestaremos atención a tu vida diaria para facilitar lo que deseas. Te acompañaré en tu proceso de crecimiento hasta donde tú sepas que tienes tus propias soluciones.
-`
+`,
+services: {
+    title: 'Servicios',
+    items: [
+      {
+        name: 'Psicoterapia individual',
+        price: '250 RON / sesión',
+        duration: 'Duración: 60 minutos'
+      },
+      {
+        name: 'Psicoterapia de grupo',
+        price: '200 RON / persona',
+        duration: 'Duración: 90 minutos'
+      },
+      {
+        name: 'Orientación profesional',
+        description: `Orientación y reorientación profesional.
+Desarrollo personal, cambio y superación del abuso laboral.`,
+        price: '250 RON / sesión',
+        duration: 'Duración: 60 minutos'
+      }
+    ]
+  },
+
   },
   en: {
     occupation: 'Clinical Psychologist  ',
@@ -151,7 +256,29 @@ I have chosen an Integrative Psychotherapeutic approach because it allows a comp
 About Psychotherapy
 You have a life story that defines you. By understanding parts of your life, you become whole. There are also parts you cannot face, whether painful or misunderstood, and therefore unresolved in some way, becoming aspects that limit your strength and ability in the present moment. There are important moments in life and many are difficult – major changes, divorce, moving into a new life stage, important decisions, material, psychological, or physical losses, moments of fear, discouragement, or simply feeling lost. These life thresholds shouldn’t all be faced alone. If they become difficult to cross, it’s natural to seek professional help.
 I invite you to explore yourself with me over time, to understand and organize certain aspects of your life with clarity, and to build beneficial and useful ways for you to act. Allow past, present, and future to coexist harmoniously. Together we will pay attention to your daily life to facilitate what you desire. I will accompany you in your journey of growth until you know you have your own solutions at hand.
-`
+`,
+services: {
+    title: 'Services',
+    items: [
+      {
+        name: 'Individual psychotherapy',
+        price: '250 RON / session',
+        duration: 'Duration: 60 minutes'
+      },
+      {
+        name: 'Group psychotherapy',
+        price: '200 RON / person',
+        duration: 'Duration: 90 minutes'
+      },
+      {
+        name: 'Career counseling',
+        description: `Career orientation and reorientation.
+Personal development, change, and overcoming workplace abuse.`,
+        price: '250 RON / session',
+        duration: 'Duration: 60 minutes'
+      }
+    ]
+  },
   }
 }
 
@@ -164,6 +291,8 @@ const aboutText = computed(() => messages[lang.value].aboutText)
 const psychotherapyText = computed(() => messages[lang.value].psychotherapyText)
 const areas = computed(() => messages[lang.value].areas)
 const experienceText = computed(() => messages[lang.value].experience)
+const services = computed(() => messages[lang.value].services)
+
 </script>
 
 <style scoped>
@@ -183,7 +312,7 @@ const experienceText = computed(() => messages[lang.value].experience)
 .nav-links { display: flex; gap: 3rem; }
 .nav-links a { text-decoration: none; color: inherit; font-size: 1.5rem; text-shadow: 1px 2px #D4AF37; }
 .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
-.lang-switch { margin-left: 1rem; }
+.lang-switch { margin-left: 1rem; border-color: #D4AF37; font-size: 0.75rem;}
 .hero { text-align: center; padding: 3rem 1rem 4rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 
 .cta { background: linear-gradient(135deg, var(--accent), var(--accent-soft)); border: none; color: rgb(77, 74, 74); padding: 0.8rem 1.6rem; border-radius: 999px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
@@ -214,9 +343,108 @@ p {
   color: #686969;
   font-weight: 300;
 }
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  
+  text-shadow: 1px 1px #D4AF37;
+  cursor: pointer;
+}
+.services {
+  text-align: center;
+}
+
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.8rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.service-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.service-card .description {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  white-space: pre-line;
+}
+
+.service-card .price {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  background: linear-gradient(90deg, #5a5906, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.service-card .duration {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.cta.small {
+  font-size: 0.75rem;
+  padding: 0.6rem 1.2rem;
+}
+
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
   .nav-links { display: none; flex-direction: column; margin-top: 1rem; gap: 0.8rem; width: 100%; }
   .nav-links.open { display: flex; }
 }
+.contact {
+  text-align: center;
+}
+
+.contact-form {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.field {
+  margin-bottom: 2rem;
+}
+
+/* Inputs y textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Focus elegante */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-bottom-color: #50c9bf;
+}
+
+/* Placeholder sutil */
+.contact-form ::placeholder {
+  color: #999;
+}
+
+/* Textarea */
+.contact-form textarea {
+  resize: none;
+}
+
+/* Botón centrado */
+.contact-form .cta {
+  margin-top: 1rem;
+}
+
 </style>
