@@ -33,7 +33,7 @@
       <img src="/images/perfil.png" alt="Roxana" class="profile" />
       <h2>{{ hero.title }}</h2>
       <p>{{ hero.subtitle }}</p>
-      <button class="cta">{{ ctaText }}</button>
+      
     </section>
 
     <!-- SECTIONS DE CONTENIDO -->
