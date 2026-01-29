@@ -13,8 +13,9 @@
       <button class="menu-toggle" @click="open = !open">☰</button>
 
       <nav class="nav-links" :class="{ open }">
+         <a href="#psihoterapie">{{ nav.psychotherapy }}</a>
         <a href="#despre">{{ nav.about }}</a>
-        <a href="#psihoterapie">{{ nav.psychotherapy }}</a>
+       
         <a href="#arii">{{ nav.areas }}</a>
         <a href="#experienta">{{ nav.experience }}</a>
         <a href="#servicii">{{ nav.services }}</a>
@@ -51,6 +52,10 @@
     </section>
 
    
+    <section id="psihoterapie" class="section">
+  <h2>{{ nav.psychotherapy }}</h2>
+  <p v-html="psychotherapyText"></p>
+    </section>
     <section id="despre" class="section">
       <h2>{{ nav.about }}</h2>
       
@@ -65,17 +70,7 @@
     </section>
 
 
-    <section id="psihoterapie" class="section">
-  <h2>{{ nav.psychotherapy }}</h2>
-  <p v-html="psychotherapyText"></p>
-    </section>
-   
-    <section id="arii" class="section">
-      <h2>{{ nav.areas }}</h2>
-      <ul class="grid">
-        <li v-for="area in areas" :key="area">{{ area }}</li>
-      </ul>
-    </section>
+  
 
     <section id="experienta" class="section alt">
       <h2>{{ nav.experience }}</h2>
@@ -292,7 +287,7 @@ Dezvoltare personală, schimbare, depășirea abuzurilor în muncă.`,
     occupation: 'Psicóloga ',
     cta: 'Reservar una consulta',
     hero: { title: 'Consulta psicológica online', subtitle: 'Un espacio seguro y confidencial' },
-    nav: { about: 'Sobre mí',  psychotherapy: 'Psicoterapia', areas: 'Áreas de tratamiento', experience: 'Experiencia', contact: 'Contacto' },
+    nav: { about: 'Sobre mí',  psychotherapy: 'Psicoterapia', areas: 'Áreas de tratamiento', experience: 'Experiencia', services: 'Servicios', contact: 'Contacto' },
     about: 'Psicóloga Clínica, Psicoterapeuta Integrativa, Psicooncóloga, Consejera en Adicciones.',
     psychotherapy: 'Enfoque empático, moderno y personalizado.',
     areas: ['Áreas de especialización: Depresión, Ansiedad, TDAH, Trastorno obsesivo-compulsivo, Adicciones, Apoyo a personas con diagnóstico oncológico.'],
@@ -335,7 +330,7 @@ Desarrollo personal, cambio y superación del abuso laboral.`,
     occupation: 'Clinical Psychologist  ',
     cta: 'Book a consultation',
     hero: { title: 'Online psychological counselling', subtitle: 'A safe and confidential space' },
-    nav: { about: 'About me',  psychotherapy: 'Psychotherapy', areas: 'Treatment areas', experience: 'Experience', contact: 'Contact' },
+    nav: { about: 'About me',  psychotherapy: 'Psychotherapy', areas: 'Treatment areas', experience: 'Experience',services: 'Services', contact: 'Contact' },
     about: 'Clinical Psychologist, Integrative Psychotherapist, Psycho-oncologist, Addiction Counselor..',
     psychotherapy: 'Empathic and structured approach.',
     areas: ['Areas of Specialization - Depression, Anxiety, ADHD, Obsessive-Compulsive Disorder, Addictions, Supporting people with oncological diagnosis'],
@@ -787,12 +782,10 @@ p {
 
 
 @media (max-width: 768px) {
-  menu-toggle { display: block; }
+  .menu-toggle { display: block; }
   .nav-links { display: none; flex-direction: column; margin-top: 1rem; gap: 0.8rem; width: 100%; }
   .nav-links.open { display: flex; }
-  .hero {
-    height: 70vh;
-  }
+  
 .hero-video {
     object-fit: cover;
   object-position: center 35%; 
@@ -806,7 +799,7 @@ p {
     font-size: 0.95rem;
   }
   .hero {
-    height: 160vh; 
+    height: 100vh; 
   }}
 
   .hero-overlay h1 {
@@ -823,8 +816,12 @@ p {
 
 }
 @media (max-width: 768px) {
+   menu-toggle { display: block; }
+  .nav-links { display: none; flex-direction: column; margin-top: 1rem; gap: 0.8rem; width: 100%; }
+  .nav-links.open { display: flex; }
+  
   .about-grid {
-    grid-template-columns: 1fr; /* una sola columna */
+    grid-template-columns: 1fr; 
     gap: 1.5rem;
     text-align: center;
   }
