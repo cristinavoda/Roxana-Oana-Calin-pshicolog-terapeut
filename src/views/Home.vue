@@ -53,7 +53,15 @@
    
     <section id="despre" class="section">
       <h2>{{ nav.about }}</h2>
+      
+<div class="about-grid">
+    <div class="about-image">
+      <img src="/images/perfil.png" alt="Roxana Oana Camelia" />
+    </div>
+
+
       <p v-html="aboutText"></p>
+      </div>
     </section>
 
 
@@ -637,26 +645,7 @@ p {
   border-bottom: white;
   text-shadow: #5c5b20;
 }
-@media (max-width: 768px) {
-  .menu-toggle { display: block; }
-  .nav-links { display: none; flex-direction: column; margin-top: 1rem; gap: 0.8rem; width: 100%; }
-  .nav-links.open { display: flex; }
-  .hero {
-    height: 70vh;
-  }
-.hero-video {
-    object-fit: cover;
-  object-position: center 35%; 
-  }
 
-  .hero-overlay h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero-overlay p {
-    font-size: 0.95rem;
-  }
-}
 .contact {
   text-align: center;
 }
@@ -775,8 +764,47 @@ p {
 .hero-video {
   filter: brightness(1.2) contrast(1.1); 
 }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: center; 
+}
+.about-image {
+  display: flex;
+  justify-content: center;
+}
+.about-image img {
+  width: 100%;
+  height: 650px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+ border: 3px solid #e7c940; 
+  border-radius: 6px;      
+
+ 
+}
+
 
 @media (max-width: 768px) {
+  menu-toggle { display: block; }
+  .nav-links { display: none; flex-direction: column; margin-top: 1rem; gap: 0.8rem; width: 100%; }
+  .nav-links.open { display: flex; }
+  .hero {
+    height: 70vh;
+  }
+.hero-video {
+    object-fit: cover;
+  object-position: center 35%; 
+  }
+
+  .hero-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-overlay p {
+    font-size: 0.95rem;
+  }
   .hero {
     height: 160vh; 
   }}
@@ -791,6 +819,49 @@ p {
   object-fit: cover;
   
 }
+
+
+}
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* una sola columna */
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .about-image {
+    justify-content: center;
+  }
+
+  .about-image img {
+    width: 100%;
+  
+    height: auto;     
+    aspect-ratio: 1 / 1;
+  }
+}
+@media (min-width: 780px) and (max-width: 920px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .about-image {
+    justify-content: center;
+  }
+
+  .about-image img {
+  
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .about-content {
+    font-size: 0.95rem; /* ligera reducción para que no “apriete” */
+    line-height: 1.6;
+  }
 }
 
 </style>
