@@ -50,27 +50,28 @@
       <p>{{ hero.subtitle }}</p>
       
     </section>
-
+<section id="arii" class="section">
+      <h2>{{ nav.areas }}</h2>
+      <ul class="grid">
+        <li v-for="area in areas" :key="area">{{ area }}</li>
+      </ul>
+    </section>
    
     <section id="psihoterapie" class="section">
   <h2>{{ nav.psychotherapy }}</h2>
+   <img src="/images/tres.png" alt="Roxana" class="about-float-img" />
   <p v-html="psychotherapyText"></p>
     </section>
+
+
     <section id="despre" class="section">
       <h2>{{ nav.about }}</h2>
-      
-<div class="about-grid">
-    <div class="about-image">
-      <img src="/images/perfil.png" alt="Roxana Oana Camelia" />
-    </div>
+       <img src="/images/perfil.png" alt="Roxana" class="about-float-img" /> 
+    
+<p v-html="aboutText"></p>
+      </section>
 
 
-      <p v-html="aboutText"></p>
-      </div>
-    </section>
-
-
-  
 
     <section id="experienta" class="section alt">
       <h2>{{ nav.experience }}</h2>
@@ -504,7 +505,40 @@ section {
 }
 #psihoterapie {
   scroll-margin-top: 90px;
+ 
+  line-height: 1.7;
 }
+.about-text {
+  line-height: 1.7;
+}
+/* imagen normal en móvil */
+.about-float-img {
+  width: 380px;
+  height: 180px;
+  object-fit: cover;
+  border: 3px solid #e7c940;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* a partir de pantallas medianas-grandes */
+@media (min-width: 900px) {
+  .about-float-img {
+    float: left;
+    width: 380px;
+    height: 260px;
+    margin: 0 1.5rem 1rem 0; /* espacio entre imagen y texto */
+  }
+
+  .about-text::after {
+    content: "";
+    display: block;
+    clear: both; /* evita que el float rompa el layout */
+  }
+}
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -765,18 +799,18 @@ p {
   gap: 2rem;
   align-items: center; 
 }
-.about-image {
-  display: flex;
-  justify-content: center;
+.about-text {
+  line-height: 1.7;
 }
-.about-image img {
-  width: 100%;
-  height: 650px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
- border: 3px solid #e7c940; 
-  border-radius: 6px;      
 
+.about-float-img {
+  width: 380px;
+  height: 480px;
+  object-fit: cover;
+  border: 3px solid #e7c940;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: block;
  
 }
 
@@ -835,6 +869,18 @@ p {
   
     height: auto;     
     aspect-ratio: 1 / 1;
+    .about-float-img {
+    float: left;
+    width: 260px;
+    height: 260px;
+    margin: 0 1.5rem 1rem 0; /* espacio entre imagen y texto */
+  }
+
+  .about-text::after {
+    content: "";
+    display: block;
+    clear: both; /* evita que el float rompa el layout */
+  }
   }
 }
 @media (min-width: 780px) and (max-width: 920px) {
