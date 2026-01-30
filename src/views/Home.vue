@@ -39,8 +39,8 @@
   </video>
 
   <div class="hero-overlay">
-    <h1> Roxana Oana Camelia</h1>
-    <p>Psihoterapie Individuală și Consiliere Profesională</p>
+    <h1> Roxana Oana Calin</h1>
+    <p> Psiholog Clinician, Psihoterapeut Integrativ, Psiho-oncolog, Consilier în adicții  </p>
     
   </div>
 
@@ -386,7 +386,7 @@ const services = computed(() => messages[lang.value].services)
 
 <style scoped>
 :root {
-  --accent: #b7c950;
+  --accent: cyan;
   --accent-soft: #6ee7e0;
   --dark: #1f2933;
   --light: #f9fafb;
