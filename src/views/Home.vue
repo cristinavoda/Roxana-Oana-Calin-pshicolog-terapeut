@@ -517,7 +517,7 @@ section {
   height: 180px;
   object-fit: cover;
   border: 3px solid darkcyan;
-  border-radius: 6px;
+   border-radius: 72%;
   margin-bottom: 1rem;
   display: block;
 }
@@ -542,7 +542,8 @@ section {
 
   .about-float-img {
     float: left;
-    width: 300px;
+    width: 200px;
+    border-radius: 72%;
     height: 260px;
     margin: 0 1.5rem 1rem 0; 
   }
@@ -824,7 +825,7 @@ p {
   height: 380px;
   object-fit: cover;
   border: 3px solid #e7c940;
-  border-radius: 6px;
+  border-radius: 72%;
   margin-bottom: 1rem;
   display: block;
  
