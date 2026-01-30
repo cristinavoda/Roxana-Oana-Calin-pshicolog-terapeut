@@ -498,7 +498,7 @@ const services = computed(() => messages[lang.value].services)
   object-fit: cover;
   border-radius: 50%;
   padding: -1rem 2rem;
-  box-shadow: 4px 4px cyan;
+  box-shadow: 4px 4px darkcyan;
 }
 section {
   scroll-margin-top: 90px;
@@ -516,7 +516,7 @@ section {
   width: 200px;
   height: 180px;
   object-fit: cover;
-  border: 3px solid cyan;
+  border: 3px solid darkcyan;
   border-radius: 6px;
   margin-bottom: 1rem;
   display: block;
@@ -526,7 +526,7 @@ section {
   width: 200px;
   height: 340px;
   object-fit: cover;
-  border: 3px solid cyan;
+  border: 3px solid darkcyan;
   border-radius: 6px;
   margin-bottom: 1rem;
   display: block;
