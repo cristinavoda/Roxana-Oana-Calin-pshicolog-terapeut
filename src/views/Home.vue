@@ -34,7 +34,7 @@
     <section class="hero">
      
   <video autoplay muted loop playsinline class="hero-video">
-     <source src="/images/videos/roxana2.mp4" type="video/mp4" />
+     <source src="/images/videos/roxana4.mp4" type="video/mp4" />
     Tu navegador no soporta video.
   </video>
 
@@ -59,7 +59,7 @@
    
     <section id="psihoterapie" class="section">
   <h2>{{ nav.psychotherapy }}</h2>
-   <img src="/images/tres.png" alt="Roxana" class="about-float-img" />
+   <img src="/images/tres.png" alt="Roxana" class="psychotherapy-float-img" />
   <p v-html="psychotherapyText"></p>
     </section>
 
@@ -511,9 +511,9 @@ section {
 .about-text {
   line-height: 1.7;
 }
-/* imagen normal en móvil */
+
 .about-float-img {
-  width: 380px;
+  width: 200px;
   height: 180px;
   object-fit: cover;
   border: 3px solid #e7c940;
@@ -521,20 +521,36 @@ section {
   margin-bottom: 1rem;
   display: block;
 }
+.psychotherapy-float-img {
+   float: right;
+  width: 200px;
+  height: 340px;
+  object-fit: cover;
+  border: 3px solid #e7c940;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: block;
+}
 
-/* a partir de pantallas medianas-grandes */
 @media (min-width: 900px) {
   .about-float-img {
     float: left;
-    width: 380px;
+    width: 300px;
     height: 260px;
-    margin: 0 1.5rem 1rem 0; /* espacio entre imagen y texto */
+    margin: 0 1.5rem 1rem 0; 
+  }
+
+  .about-float-img {
+    float: left;
+    width: 300px;
+    height: 260px;
+    margin: 0 1.5rem 1rem 0; 
   }
 
   .about-text::after {
     content: "";
     display: block;
-    clear: both; /* evita que el float rompa el layout */
+    clear: both;
   }
 }
 
@@ -754,7 +770,7 @@ p {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; 
+  height: 170vh; 
 }
 .hero::before {
   content: "";
@@ -804,8 +820,8 @@ p {
 }
 
 .about-float-img {
-  width: 380px;
-  height: 480px;
+  width: 300px;
+  height: 380px;
   object-fit: cover;
   border: 3px solid #e7c940;
   border-radius: 6px;
@@ -833,7 +849,7 @@ p {
     font-size: 0.95rem;
   }
   .hero {
-    height: 100vh; 
+    height: 170vh; 
   }}
 
   .hero-overlay h1 {
@@ -865,22 +881,23 @@ p {
   }
 
   .about-image img {
-    width: 100%;
+    width: 90%;
   
     height: auto;     
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1;}
+
+
     .about-float-img {
     float: left;
     width: 260px;
-    height: 260px;
-    margin: 0 1.5rem 1rem 0; /* espacio entre imagen y texto */
-  }
+    height: 300px;
+    margin: 0 1.5rem 1rem 0; }
 
   .about-text::after {
     content: "";
     display: block;
-    clear: both; /* evita que el float rompa el layout */
-  }
+    clear: both; 
+  
   }
 }
 @media (min-width: 780px) and (max-width: 920px) {
@@ -902,9 +919,10 @@ p {
   }
 
   .about-content {
-    font-size: 0.95rem; /* ligera reducción para que no “apriete” */
+    font-size: 0.95rem; 
     line-height: 1.6;
   }
+  
 }
 
 </style>
