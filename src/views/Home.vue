@@ -849,7 +849,7 @@ p {
     font-size: 0.95rem;
   }
   .hero {
-    height: 170vh; 
+    height: 100vh; 
   }}
 
   .hero-overlay h1 {
