@@ -386,7 +386,7 @@ const services = computed(() => messages[lang.value].services)
 
 <style scoped>
 :root {
-  --accent: cyan;
+  --accent:darkcyan;
   --accent-soft: #6ee7e0;
   --dark: #1f2933;
   --light: #f9fafb;
@@ -395,8 +395,8 @@ const services = computed(() => messages[lang.value].services)
 .app { font-family: 'Inter', sans-serif; color: var(--dark); }
 .header { display: flex; justify-content: space-between; align-items: center; gap:3rem; padding: 1rem 2rem; border-bottom: 1px solid #e5e7eb; flex-wrap: wrap; }
 .header-left { display: flex; gap: 1rem; align-items: center; }
-.logo { height: 58px; text-shadow: solid 2px 3px cyan; }
-.name { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem,5vw,1.8rem); font-weight: 600; background: linear-gradient(135deg, var(--accent), var(--accent-soft)); -webkit-background-clip: text; -webkit-text-fill-color: cyan; text-shadow: 1px 1px black;}
+.logo { height: 58px; text-shadow: solid 2px 3px darkcyan; }
+.name { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem,5vw,1.8rem); font-weight: 600; background: linear-gradient(135deg, var(--accent), var(--accent-soft)); -webkit-background-clip: text; -webkit-text-fill-color: darkcyan; }
 .occupation { font-size: 0.85rem; color: #6b7280; }
 .nav-links { display: flex; gap: 3rem; }
 .nav-links a {
@@ -410,8 +410,8 @@ const services = computed(() => messages[lang.value].services)
 }
 
 .nav-links a:hover {
-  color: cyan; 
-  text-shadow: 1px 2px #1f2933;         
+  color: darkcyan; 
+     
 }
 
 
@@ -432,17 +432,17 @@ const services = computed(() => messages[lang.value].services)
 
 
 .nav-links a.active {
-   color: cyan; 
+   color: darkcyan; 
 }
 
 .nav-links a.active::after {
   width: 100%;
-  color: cyan; 
+  color: darkcyan; 
 }
 
 
 .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
-.lang-switch { margin-left: 1rem; border-color: cyan; font-size: 0.75rem;}
+.lang-switch { margin-left: 1rem; border-color: darkcyan; font-size: 0.75rem;}
 .hero {
   position: relative;
   width: 100%;
@@ -569,7 +569,7 @@ p {
   display: none;
   font-size: 1.5rem;
   
-  text-shadow: 1px 1px #D4AF37;
+  text-shadow: 1px 1px cyan;
   cursor: pointer;
 }
 .services {
