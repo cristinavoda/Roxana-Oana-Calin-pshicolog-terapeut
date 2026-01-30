@@ -3,7 +3,7 @@
     
     <header class="header">
       <div class="header-left">
-        <img src="/images/logo3.png" alt="Logo" class="logo" />
+        <img src="/images/logo2.png" alt="Logo" class="logo" />
         <div>
           <h1 class="name">Roxana Oana Calin</h1>
           <p class="occupation">{{ occupationText }}</p>
@@ -395,8 +395,8 @@ const services = computed(() => messages[lang.value].services)
 .app { font-family: 'Inter', sans-serif; color: var(--dark); }
 .header { display: flex; justify-content: space-between; align-items: center; gap:3rem; padding: 1rem 2rem; border-bottom: 1px solid #e5e7eb; flex-wrap: wrap; }
 .header-left { display: flex; gap: 1rem; align-items: center; }
-.logo { height: 58px; text-shadow: solid 2px 3px #D4AF37; }
-.name { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem,5vw,1.8rem); font-weight: 600; background: linear-gradient(135deg, var(--accent), var(--accent-soft)); -webkit-background-clip: text; -webkit-text-fill-color: #D4AF37; text-shadow: 1px 1px black;}
+.logo { height: 58px; text-shadow: solid 2px 3px cyan; }
+.name { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem,5vw,1.8rem); font-weight: 600; background: linear-gradient(135deg, var(--accent), var(--accent-soft)); -webkit-background-clip: text; -webkit-text-fill-color: cyan; text-shadow: 1px 1px black;}
 .occupation { font-size: 0.85rem; color: #6b7280; }
 .nav-links { display: flex; gap: 3rem; }
 .nav-links a {
@@ -410,7 +410,7 @@ const services = computed(() => messages[lang.value].services)
 }
 
 .nav-links a:hover {
-  color: #d3bd42; 
+  color: cyan; 
   text-shadow: 1px 2px #1f2933;         
 }
 
@@ -422,7 +422,7 @@ const services = computed(() => messages[lang.value].services)
   bottom: 0;
   width: 0%;
   height: 1px;             
-  background: #FFD700;     
+  background: cyan;     
   transition: width 0.3s ease;
 }
 
@@ -432,17 +432,17 @@ const services = computed(() => messages[lang.value].services)
 
 
 .nav-links a.active {
-   color: #d3bd42; 
+   color: cyan; 
 }
 
 .nav-links a.active::after {
   width: 100%;
-  color: #d3bd42; 
+  color: cyan; 
 }
 
 
 .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
-.lang-switch { margin-left: 1rem; border-color: #D4AF37; font-size: 0.75rem;}
+.lang-switch { margin-left: 1rem; border-color: cyan; font-size: 0.75rem;}
 .hero {
   position: relative;
   width: 100%;
@@ -498,7 +498,7 @@ const services = computed(() => messages[lang.value].services)
   object-fit: cover;
   border-radius: 50%;
   padding: -1rem 2rem;
-  box-shadow: 4px 4px #D4AF37;
+  box-shadow: 4px 4px cyan;
 }
 section {
   scroll-margin-top: 90px;
@@ -516,7 +516,7 @@ section {
   width: 200px;
   height: 180px;
   object-fit: cover;
-  border: 3px solid #e7c940;
+  border: 3px solid cyan;
   border-radius: 6px;
   margin-bottom: 1rem;
   display: block;
@@ -526,7 +526,7 @@ section {
   width: 200px;
   height: 340px;
   object-fit: cover;
-  border: 3px solid #e7c940;
+  border: 3px solid cyan;
   border-radius: 6px;
   margin-bottom: 1rem;
   display: block;
@@ -558,7 +558,7 @@ section {
 html {
   scroll-behavior: smooth;
 }
-h2 {text-decoration: none; color:#646769; font-size: 1.5rem; font-weight: 400; text-shadow: 1px 2px #D4AF37;}
+h2 {text-decoration: none; color:#646769; font-size: 1.5rem; font-weight: 400; text-shadow: 1px 2px cyan; text-shadow: 1px 2px black;}
 p {
   color: #343535;
   text-shadow: 1px 2px white;
