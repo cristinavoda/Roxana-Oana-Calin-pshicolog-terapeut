@@ -34,7 +34,7 @@
     <section class="hero">
      
   <video autoplay muted loop playsinline class="hero-video">
-     <source src="/images/videos/roxana4.mp4" type="video/mp4" />
+     <source src="/images/videos/waterfall.mp4" type="video/mp4" />
     Tu navegador no soporta video.
   </video>
 
@@ -521,6 +521,10 @@ section {
   margin-bottom: 1rem;
   display: block;
 }
+.about-float-img:hover {
+  transform: scale(1.1) rotate(-3deg);
+  filter: drop-shadow(2px 2px 12px #00ffff) brightness(1.2);
+}
 .psychotherapy-float-img {
    float: right;
   width: 200px;
@@ -559,7 +563,7 @@ section {
 html {
   scroll-behavior: smooth;
 }
-h2 {text-decoration: none; color:#646769; font-size: 1.5rem; font-weight: 400; text-shadow: 1px 2px cyan; text-shadow: 1px 2px black;}
+h2 {text-decoration: none; color: darkcyan; font-size: 1.5rem; font-weight: 400; text-shadow: 1px 2px cyan; text-shadow: 1px 2px black;}
 p {
   color: #343535;
   text-shadow: 1px 2px white;
@@ -609,6 +613,19 @@ p {
   font-size: 0.85rem;
   color: #777;
   
+}
+/* Sección general */
+.section {
+  padding: 4rem 2rem;
+}
+
+/* Alternar fondo cada sección usando :nth-of-type */
+section:nth-of-type(odd) {
+  background-color: #ffffff; /* Blanco */
+}
+
+section:nth-of-type(even) {
+  background-color: #f5f5f5; /* Gris muy claro */
 }
 
 .cta {
@@ -684,7 +701,7 @@ p {
 }
 
 .phone {
-  background: linear-gradient(135deg, #50c9bf, #FFD700);
+  background: linear-gradient(135deg, #7df3e9, darkcyan);
 }
 .a {
   color:#a59b9b;
@@ -795,8 +812,7 @@ p {
 }
 .hero-video {
   position: absolute;
-
-  min-width: 100%;
+ min-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
@@ -821,8 +837,12 @@ p {
 }
 
 .about-float-img {
-  width: 300px;
-  height: 380px;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  filter: drop-shadow(0 0 5px #00ffffa6);
+  animation: fadeInUp 1s ease-out forwards, pulse 3s ease-in-out infinite;
+  opacity: 1;
+ height: 430px;
+  width: 250px;
   object-fit: cover;
   border: 3px solid #e7c940;
   border-radius: 72%;
@@ -924,6 +944,17 @@ p {
     line-height: 1.6;
   }
   
+    .about-float-img {
+    float: left;
+    width: 260px;
+    height: 300px;
+    margin: 0 1.5rem 1rem 0; }
+
+  .about-text::after {
+    content: "";
+    display: block;
+    clear: both; 
+  }
 }
 
 </style>
